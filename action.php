@@ -5,6 +5,7 @@
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  * @author     Michael Klier <chi@chimeric.de>
  * @author     Anika Henke <anika@selfthinker.org>
+ * @author     Nick J. Date
  */
 // must be run within Dokuwiki
 if(!defined('DOKU_INC')) die();
@@ -118,6 +119,7 @@ class action_plugin_loadskin extends DokuWiki_Action_Plugin {
      * Get template from session and/or user config
      *
      * @author Anika Henke <anika@selfthinker.org>
+     * @author Nick J. Date
      */
     private function _getTplPerUser() {
         global $INPUT;
@@ -127,7 +129,7 @@ class action_plugin_loadskin extends DokuWiki_Action_Plugin {
         $tpls   = $helper->getTemplates();
 
         $mobileSwitch = $this->getConf('mobileSwitch');
-        $user = $_SERVER['REMOTE_USER'];
+        $user = $_SERVER['REMOTE_USER'] ?? null;
 
         $tplRequest = $INPUT->str('tpl');
         $actSelect  = $INPUT->str('act') && ($INPUT->str('act') == 'select');
