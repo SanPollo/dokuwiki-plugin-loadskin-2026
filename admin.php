@@ -3,6 +3,7 @@
  * DokuWiki Plugin Loadskin
  *
  * @author Michael Klier <chi@chimeric.de>
+ * @author Nick J. Date
  */
 if(!defined('DOKU_INC')) define('DOKU_INC',realpath(dirname(__FILE__).'/../../../').'/');
 if(!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
@@ -64,6 +65,7 @@ class admin_plugin_loadskin extends DokuWiki_Admin_Plugin {
      */
     public function html() {
         global $lang;
+        global $ID;
         $helper = $this->loadHelper('loadskin', true);
 
         print '<div id="plugin__loadskin">';
