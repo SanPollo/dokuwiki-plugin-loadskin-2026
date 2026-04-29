@@ -3,6 +3,7 @@
  * DokuWiki Helper Plugin LoadSkin
  *
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
+ * @author     Nick J. Date
  * @author     Anika Henke <anika@selfthinker.org>
  * @author     Michael Klier <chi@chimeric.de>
  */
@@ -17,10 +18,12 @@ class helper_plugin_loadskin extends DokuWiki_Plugin {
     /**
      * Returns an array of available templates to choose from
      *
+     * @author Nick J. Date
      * @author Michael Klier <chi@chimeric.de>
      */
     public function getTemplates() {
         $tpl_dir = DOKU_INC.'lib/tpl/';
+        $list = [];
         if ($dh = @opendir($tpl_dir)) {
             while (false !== ($entry = readdir($dh))) {
                 if ($entry == '.' || $entry == '..') continue;
