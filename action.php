@@ -177,6 +177,7 @@ class action_plugin_loadskin extends DokuWiki_Action_Plugin {
      *
      * @author Michael Klier <chi@chimeric.de>
      * @author Anika Henke <anika@selfthinker.org>
+     * @author Nick J. Date
      */
     private function _getTplPerNamespace() {
         global $ID;
@@ -195,13 +196,13 @@ class action_plugin_loadskin extends DokuWiki_Action_Plugin {
                     $id = str_ireplace($langPath, '', $id);
             }
 
-            if($data[$id]) return $data[$id];
+            if(isset($data[$id])) return $data[$id];
 
             $path  = explode(':', $id);
 
             while(count($path) > 0) {
                 $id = implode(':', $path);
-                if($data[$id]) return $data[$id];
+                if(isset($data[$id])) return $data[$id];
                 array_pop($path);
             }
         }
@@ -212,6 +213,7 @@ class action_plugin_loadskin extends DokuWiki_Action_Plugin {
      * Get/set template for user in config
      *
      * @author Anika Henke <anika@selfthinker.org>
+     * @author Nick J. Date
      */
     private function _tplUserConfig($act, $user, $tpl='') {
         $data = array();
@@ -219,7 +221,7 @@ class action_plugin_loadskin extends DokuWiki_Action_Plugin {
         if(@file_exists($userConf)) {
             $data = unserialize(io_readFile($userConf, false));
             if ($act == 'get')
-                return $data[$user];
+                return $data[$user] ?? false;
             unset($data[$user]);
         }
         if ($act == 'get')
