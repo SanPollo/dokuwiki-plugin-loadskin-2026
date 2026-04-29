@@ -1,4 +1,7 @@
-LoadSkin Plugin for DokuWiki
+LoadSkin Plugin for DokuWiki (2026) for PHP 8.1
+
+Fork created so that plugin works with PHP 8.1 without showing visible errors to the user. (Previous one has not been updated since 2017.)
+I will maintain it if anything breaks on my DokuWiki instance, but have no plans for new features as it appears to do exactly what I want it to.
 
 All documentation for the LoadSkin Plugin is available online at:
 
@@ -6,4 +9,6 @@ All documentation for the LoadSkin Plugin is available online at:
 
 (c) 2008 - 2009 by Michael Klier <chi@chimeric.de>
 (c) 2010 - 2017 by Anika Henke <anika@selfthinker.org>
+(c) 2026 by Nick J. Date
+
 See COPYING for license info.
